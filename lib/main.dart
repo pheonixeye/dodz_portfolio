@@ -1,8 +1,12 @@
 import 'dart:convert';
 
+import 'package:dodz_portfolio/core/bloc/bloc.dart';
+import 'package:dodz_portfolio/core/localization/app_localizations.dart';
+import 'package:dodz_portfolio/core/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:json_theme/json_theme.dart';
 
 Future main() async {
@@ -17,7 +21,7 @@ Future main() async {
 
   runApp(
     MultiBlocProvider(
-      providers: [],
+      providers: providers,
       child: MyApp(
         themes: {
           "light": light,
@@ -35,13 +39,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Dr. Deraz Portfolio',
       theme: themes['light'],
       darkTheme: themes['dark'],
       themeMode: ThemeMode.dark,
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      localizationsDelegates: const [
+        AppLocalizations.delegate, // # Add this line
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en', ''),
+        Locale('ar', ''),
+      ],
+      locale: const Locale('ar', ''),
+      routerConfig: Routes.router,
     );
   }
 }
