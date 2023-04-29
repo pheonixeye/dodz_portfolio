@@ -93,6 +93,35 @@ abstract class AppLocalizations {
     Locale('en')
   ];
 
+  /// No description provided for @homePage.
+  ///
+  /// In en, this message translates to:
+  /// **'HomePage'**
+  String get homePage;
+
+  /// No description provided for @errorPage.
+  ///
+  /// In en, this message translates to:
+  /// **'ErrorPage'**
+  String get errorPage;
+
+  /// No description provided for @showcasePage.
+  ///
+  /// In en, this message translates to:
+  /// **'ShowcasePage'**
+  String get showcasePage;
+
+  /// No description provided for @authPage.
+  ///
+  /// In en, this message translates to:
+  /// **'AuthPage'**
+  String get authPage;
+
+  /// No description provided for @adminPage.
+  ///
+  /// In en, this message translates to:
+  /// **'AdminPage'**
+  String get adminPage;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

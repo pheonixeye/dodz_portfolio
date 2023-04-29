@@ -4,5 +4,18 @@ import 'app_localizations.dart';
 class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
+  @override
+  String get homePage => 'HomePage';
 
+  @override
+  String get errorPage => 'ErrorPage';
+
+  @override
+  String get showcasePage => 'ShowcasePage';
+
+  @override
+  String get authPage => 'AuthPage';
+
+  @override
+  String get adminPage => 'AdminPage';
 }

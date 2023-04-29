@@ -1,3 +1,4 @@
+import 'package:dodz_portfolio/core/extensions/locale_ext_fns.dart';
 import 'package:flutter/material.dart';
 
 class AuthPage extends StatelessWidget {
@@ -5,9 +6,9 @@ class AuthPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Text('AuthPage'),
+        child: Text(context.loc.authPage),
       ),
     );
   }

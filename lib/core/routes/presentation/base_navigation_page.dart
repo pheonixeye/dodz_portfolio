@@ -7,7 +7,7 @@ class BaseNavigationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text('BaseNavigationPage'),
+        child: CircularProgressIndicator.adaptive(),
       ),
     );
   }

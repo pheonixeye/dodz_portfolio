@@ -1,1 +1,7 @@
-{}
+{
+    "homePage" : "HomePage",
+    "errorPage" : "ErrorPage",
+    "showcasePage" : "ShowcasePage",
+    "authPage" : "AuthPage",
+    "adminPage" : "AdminPage"
+}

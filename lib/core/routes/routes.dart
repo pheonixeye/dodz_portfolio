@@ -1,8 +1,12 @@
+import 'package:dodz_portfolio/core/localization/bloc/language_bloc.dart';
 import 'package:dodz_portfolio/core/routes/presentation/base_navigation_page.dart';
 import 'package:dodz_portfolio/modules/admin/presentation/admin_page.dart';
 import 'package:dodz_portfolio/modules/authentication/presentation/auth_page.dart';
+import 'package:dodz_portfolio/modules/error/presentation/error_page.dart';
 import 'package:dodz_portfolio/modules/homepage/presentation/homepage.dart';
 import 'package:dodz_portfolio/modules/showcase/presentation/showcase_page.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class Routes {
@@ -28,8 +32,11 @@ class Routes {
             path: ':lang',
             name: 'homepage',
             builder: (context, state) {
+              final lang = state.params['lang'] as String;
+              final key = ValueKey(lang);
+              context.read<LanguageBloc>().add(LanguageSelect(Locale(lang)));
               return Homepage(
-                key: state.pageKey,
+                key: key,
               );
             },
           ),
@@ -61,6 +68,15 @@ class Routes {
                 },
               ),
             ],
+          ),
+          GoRoute(
+            path: '404',
+            name: 'Not Found',
+            builder: (context, state) {
+              return ErrorPage(
+                key: state.pageKey,
+              );
+            },
           ),
         ],
       ),

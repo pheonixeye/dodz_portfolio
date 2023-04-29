@@ -1,1 +1,7 @@
-{}
+{
+    "homePage" : "الرئيسية",
+    "errorPage" : "صفحة غير موجودة",
+    "showcasePage" : "المعرض",
+    "authPage" : "الدخول",
+    "adminPage" : "لوحة التحكم"
+}
