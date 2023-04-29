@@ -1,9 +1,7 @@
-import 'package:dodz_portfolio/core/extensions/locale_ext_fns.dart';
-import 'package:dodz_portfolio/core/localization/bloc/language_bloc.dart';
+import 'package:dodz_portfolio/core/components/floating_action_buttons.dart';
 import 'package:dodz_portfolio/core/themes/bloc/theme_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -11,37 +9,27 @@ class Homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text(context.loc.homePage),
-      ),
-      floatingActionButton: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
+      body: Stack(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: FloatingActionButton(
-              onPressed: () {
-                if (context.read<LanguageBloc>().state.locale.languageCode ==
-                    'en') {
-                  GoRouter.of(context).go('/ar');
-                } else {
-                  GoRouter.of(context).go('/en');
-                }
-              },
-              child: const Icon(Icons.language),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: FloatingActionButton(
-              onPressed: () {
-                context.read<ThemeBloc>().add(const ThemeChangeEvent());
-              },
-              child: const Icon(Icons.theater_comedy),
-            ),
+          BlocBuilder<ThemeBloc, ThemeState>(
+            builder: (context, themeState) {
+              return Opacity(
+                opacity: 0.8,
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height,
+                  child: Image.asset(
+                    'svg/subtle-prism-${themeState.background}.png',
+                    fit: BoxFit.cover,
+                    matchTextDirection: true,
+                  ),
+                ),
+              );
+            },
           ),
         ],
       ),
+      floatingActionButton: const FloatingActionButtonsArea(),
     );
   }
 }

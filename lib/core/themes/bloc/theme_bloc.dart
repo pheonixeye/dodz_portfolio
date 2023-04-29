@@ -6,12 +6,12 @@ part 'theme_event.dart';
 part 'theme_state.dart';
 
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
-  ThemeBloc() : super(const ThemeInitial(ThemeMode.light)) {
+  ThemeBloc() : super(const ThemeInitial(ThemeMode.light, 'light')) {
     on<ThemeChangeEvent>((event, emit) {
       if (state.themeMode == ThemeMode.light) {
-        emit(const ThemeChanged(ThemeMode.dark));
+        emit(const ThemeChanged(ThemeMode.dark, 'dark'));
       } else {
-        emit(const ThemeChanged(ThemeMode.light));
+        emit(const ThemeChanged(ThemeMode.light, 'light'));
       }
     });
   }
