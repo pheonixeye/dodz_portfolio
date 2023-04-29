@@ -19,7 +19,7 @@ class Homepage extends StatelessWidget {
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height,
                   child: Image.asset(
-                    'svg/subtle-prism-${themeState.background}.png',
+                    'svg/subtle-prism-${themeState.background}-min.jpg',
                     fit: BoxFit.cover,
                     matchTextDirection: true,
                   ),
