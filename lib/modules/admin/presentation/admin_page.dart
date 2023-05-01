@@ -1,4 +1,4 @@
-import 'package:dodz_portfolio/core/extensions/locale_ext_fns.dart';
+import 'package:dodz_portfolio/core/components/background_widget.dart';
 import 'package:flutter/material.dart';
 
 class AdminPage extends StatelessWidget {
@@ -6,10 +6,8 @@ class AdminPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text(context.loc.adminPage),
-      ),
+    return const BackgroundWidget(
+      child: SizedBox(),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:dodz_portfolio/core/localization/bloc/language_bloc.dart';
+import 'package:dodz_portfolio/core/routes/helpers/transition.dart';
 import 'package:dodz_portfolio/core/routes/presentation/base_navigation_page.dart';
 import 'package:dodz_portfolio/modules/admin/presentation/admin_page.dart';
 import 'package:dodz_portfolio/modules/authentication/presentation/auth_page.dart';
@@ -39,33 +40,35 @@ class Routes {
                 key: key,
               );
             },
-          ),
-          GoRoute(
-            path: ':lang/showcase',
-            name: 'showcase',
-            builder: (context, state) {
-              return ShowcasePage(
-                key: state.pageKey,
-              );
-            },
-          ),
-          GoRoute(
-            path: ':lang/admin',
-            name: 'admin',
-            builder: (context, state) {
-              return AuthPage(
-                key: state.pageKey,
-              );
-            },
             routes: [
               GoRoute(
-                path: 'in',
-                name: 'in',
+                path: 'showcase',
+                name: 'showcase',
                 builder: (context, state) {
-                  return AdminPage(
+                  return ShowcasePage(
                     key: state.pageKey,
                   );
                 },
+              ),
+              GoRoute(
+                path: 'admin',
+                name: 'admin',
+                builder: (context, state) {
+                  return AuthPage(
+                    key: state.pageKey,
+                  );
+                },
+                routes: [
+                  GoRoute(
+                    path: 'in',
+                    name: 'in',
+                    builder: (context, state) {
+                      return AdminPage(
+                        key: state.pageKey,
+                      );
+                    },
+                  ),
+                ],
               ),
             ],
           ),

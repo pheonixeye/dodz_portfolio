@@ -96,7 +96,7 @@ abstract class AppLocalizations {
   /// No description provided for @homePage.
   ///
   /// In en, this message translates to:
-  /// **'HomePage'**
+  /// **'Homepage'**
   String get homePage;
 
   /// No description provided for @errorPage.
@@ -108,7 +108,7 @@ abstract class AppLocalizations {
   /// No description provided for @showcasePage.
   ///
   /// In en, this message translates to:
-  /// **'ShowcasePage'**
+  /// **'Showcase'**
   String get showcasePage;
 
   /// No description provided for @authPage.

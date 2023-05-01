@@ -5,13 +5,13 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get homePage => 'HomePage';
+  String get homePage => 'Homepage';
 
   @override
   String get errorPage => 'ErrorPage';
 
   @override
-  String get showcasePage => 'ShowcasePage';
+  String get showcasePage => 'Showcase';
 
   @override
   String get authPage => 'AuthPage';

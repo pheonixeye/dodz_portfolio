@@ -15,12 +15,18 @@ class FloatingActionButtonsArea extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: FloatingActionButton(
+            heroTag: 'language',
             onPressed: () {
+              final location = GoRouter.of(context).location;
+              final paths = location.split(RegExp('/'));
+              paths.removeAt(0);
+              paths.removeAt(0);
+              final whereToGo = paths.join('/');
               if (context.read<LanguageBloc>().state.locale.languageCode ==
                   'en') {
-                GoRouter.of(context).go('/ar');
+                GoRouter.of(context).go('/ar/$whereToGo');
               } else {
-                GoRouter.of(context).go('/en');
+                GoRouter.of(context).go('/en/$whereToGo');
               }
             },
             child: const Icon(Icons.language),
@@ -29,6 +35,7 @@ class FloatingActionButtonsArea extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: FloatingActionButton(
+            heroTag: 'theme',
             onPressed: () {
               context.read<ThemeBloc>().add(const ThemeChangeEvent());
             },

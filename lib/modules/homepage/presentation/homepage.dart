@@ -1,35 +1,24 @@
-import 'package:dodz_portfolio/core/components/floating_action_buttons.dart';
-import 'package:dodz_portfolio/core/themes/bloc/theme_bloc.dart';
+import 'package:dodz_portfolio/core/components/background_widget.dart';
+import 'package:dodz_portfolio/core/extensions/is_mobile.dart';
+import 'package:dodz_portfolio/modules/homepage/presentation/widgets/about.dart';
+import 'package:dodz_portfolio/modules/homepage/presentation/widgets/avatar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
+    return BackgroundWidget(
+      child: Flex(
+        mainAxisAlignment: MainAxisAlignment.center,
+        direction: isMobile(context) ? Axis.vertical : Axis.horizontal,
         children: [
-          BlocBuilder<ThemeBloc, ThemeState>(
-            builder: (context, themeState) {
-              return Opacity(
-                opacity: 0.8,
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height,
-                  child: Image.asset(
-                    'svg/subtle-prism-${themeState.background}-min.jpg',
-                    fit: BoxFit.cover,
-                    matchTextDirection: true,
-                  ),
-                ),
-              );
-            },
-          ),
+          const AvatarWidget(),
+          isMobile(context) ? const Divider() : const VerticalDivider(),
+          const AboutWidget(),
         ],
       ),
-      floatingActionButton: const FloatingActionButtonsArea(),
     );
   }
 }

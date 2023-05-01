@@ -1,5 +1,4 @@
-import 'package:dodz_portfolio/core/components/floating_action_buttons.dart';
-import 'package:dodz_portfolio/core/extensions/locale_ext_fns.dart';
+import 'package:dodz_portfolio/core/components/background_widget.dart';
 import 'package:flutter/material.dart';
 
 class ErrorPage extends StatelessWidget {
@@ -7,11 +6,8 @@ class ErrorPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text(context.loc.errorPage),
-      ),
-      floatingActionButton: const FloatingActionButtonsArea(),
+    return const BackgroundWidget(
+      child: SizedBox(),
     );
   }
 }
