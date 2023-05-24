@@ -23,7 +23,7 @@ class BackgroundWidget extends StatelessWidget {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(
-                        'svg/subtle-prism-${themeState.background}-min.jpg'),
+                        'assets/svg/subtle-prism-${themeState.background}-min.jpg'),
                     fit: BoxFit.cover,
                     matchTextDirection: true,
                   ),

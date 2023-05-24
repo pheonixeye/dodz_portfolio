@@ -1,5 +1,4 @@
 import 'package:dodz_portfolio/core/localization/bloc/language_bloc.dart';
-import 'package:dodz_portfolio/core/routes/helpers/transition.dart';
 import 'package:dodz_portfolio/core/routes/presentation/base_navigation_page.dart';
 import 'package:dodz_portfolio/modules/admin/presentation/admin_page.dart';
 import 'package:dodz_portfolio/modules/authentication/presentation/auth_page.dart';
@@ -23,7 +22,7 @@ class Routes {
           );
         },
         redirect: (context, state) {
-          if (state.fullpath == '/') {
+          if (state.fullPath == '/') {
             return '/en';
           }
           return null;
@@ -33,7 +32,7 @@ class Routes {
             path: ':lang',
             name: 'homepage',
             builder: (context, state) {
-              final lang = state.params['lang'] as String;
+              final lang = state.pathParameters['lang'] as String;
               final key = ValueKey(lang);
               context.read<LanguageBloc>().add(LanguageSelect(Locale(lang)));
               return Homepage(
